@@ -1,6 +1,6 @@
 # Procédure d'Arrestation
 
-Cette section détaille le protocole standard à suivre lors de l'interpellation d'un suspect, de la sécurisation de la zone jusqu'à la mise en détention.
+Cette section détaille le protocole standard à suivre lors de l'interpellation d'un suspect, de la sécurisation de la zone jusqu'à la mise en détention faite par le LSPD.
 
 ## Chronologie de l'intervention
 
