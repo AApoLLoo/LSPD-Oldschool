@@ -1,0 +1,99 @@
+/* .vitepress/theme/style.css */
+
+/* --- 1. CONFIGURATION GÉNÉRALE --- */
+:root {
+    /* Palette Moderne LSPD : Bleu nuit profond, Blanc cassé, Or/Jaune police */
+    --vp-c-bg: #0a192f;           /* Couleur de fond de repli (bleu très sombre) */
+    --vp-c-bg-alt: #112240;       /* Fond alternatif */
+    --vp-c-bg-el: #1d3557;        /* Éléments interactifs */
+
+    --vp-c-text-1: #e6f1ff;       /* Texte principal (blanc froid) */
+    --vp-c-text-2: #a8b2d1;       /* Texte secondaire (gris bleu) */
+
+    --vp-c-brand: #ffd700;        /* Or/Jaune Police pour les accents */
+    --vp-c-brand-1: #ffed4a;      /* Survol */
+    --vp-c-brand-2: #cfa600;      /* Clic */
+
+    /* Définition des nouvelles polices */
+    --vp-font-family-base: 'Montserrat', sans-serif; /* Texte courant */
+    --title-font-family: 'Oswald', sans-serif;       /* Titres */
+
+    /* Réglages de l'interface */
+    --vp-nav-height: 70px;
+    --vp-sidebar-width: 280px;
+}
+
+
+/* --- 2. IMAGE DE FOND ET CORPS --- */
+body {
+    /* L'image que vous avez enregistrée dans le dossier public */
+    background-image: url('/public/LSPD.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* L'image reste fixe quand on scrolle */
+    font-family: var(--vp-font-family-base);
+}
+
+/* --- 3. RENDRE LE CONTENU LISIBLE (Effet Verre Fumé) --- */
+/* On applique un fond semi-transparent sombre sur les zones de texte */
+.VPNav, .VPSidebar, .VPContent, .VPFooter {
+    background-color: rgba(10, 25, 47, 0.85) !important; /* Bleu sombre à 85% d'opacité */
+    backdrop-filter: blur(8px); /* Flou moderne en arrière-plan (optionnel, peut ralentir sur vieux PC) */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Ombre portée pour le relief */
+    border: 1px solid rgba(255, 215, 0, 0.1); /* Fine bordure dorée subtile */
+}
+
+/* --- 4. TYPOGRAPHIE "FLIC MODERNE" --- */
+/* Titres en Oswald, majuscules, imposants */
+h1, h2, h3, .VPNavBarTitle {
+    font-family: var(--title-font-family) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+h1 {
+    color: var(--vp-c-brand); /* Le titre principal en Or */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- 5. NAVIGATION ET BOUTONS --- */
+.VPNavBarTitle {
+    font-size: 1.4rem;
+}
+
+/* Liens du menu */
+.VPNavBarMenuLink.active {
+    border-bottom: 3px solid var(--vp-c-brand);
+    background: transparent !important;
+    color: var(--vp-c-brand) !important;
+}
+
+/* Boutons plus modernes, légèrement arrondis et solides */
+.VPButton {
+    border-radius: 4px !important;
+    font-family: var(--title-font-family);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease !important;
+}
+
+.VPButton.brand {
+    background-color: var(--vp-c-brand) !important;
+    color: #0a192f !important; /* Texte sombre sur bouton or */
+    border: none !important;
+}
+.VPButton.brand:hover {
+    background-color: var(--vp-c-brand-1) !important;
+    transform: translateY(-2px); /* Petit effet de soulèvement */
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Sidebar active */
+.VPSidebarItem .link.active .text {
+    color: var(--vp-c-brand) !important;
+    font-weight: 700 !important;
+    border-left: 4px solid var(--vp-c-brand);
+    padding-left: 10px;
+}

@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "LSPD Oldschool"
-  text: "Documentation Officielle"
-  tagline: "Procédures, Codes Radio et Règlements."
+  name: "LSPD"
+  text: "Intranet du Los Santos Police Departement"
+  tagline: "Protéger & Servir."
   actions:
     - theme: brand
       text: 👮‍♂️ Lire les Procédures
