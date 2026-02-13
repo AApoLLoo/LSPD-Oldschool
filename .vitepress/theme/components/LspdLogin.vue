@@ -7,23 +7,43 @@ const matricule = ref('')
 const password = ref('')
 const loading = ref(false)
 const error = ref('')
+const emit = defineEmits(['login-success'])
 
-const handleLogin = () => {
+const handleLogin = async () => {
   if (!matricule.value || !password.value) {
     error.value = "CHAMPS REQUIS MANQUANTS"
     return
   }
 
-  // Simulation de connexion
   loading.value = true
   error.value = ''
 
-  setTimeout(() => {
+  try {
+    // REMPLACEZ 'IP_DE_VOTRE_VPS' PAR LA VRAIE IP (ex: 51.210.xxx.xxx)
+    // Attention : gardez bien le port 3000 à la fin
+    const res = await fetch('http://51.178.87.25:3000/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        matricule: matricule.value,
+        password: password.value
+      })
+    })
+
+    const data = await res.json() // C'est ici qu'on définit 'data' !
+
+    if (data.success) {
+      emit('login-success', data.user)
+    } else {
+      error.value = data.message || "ERREUR D'IDENTIFICATION"
+    }
+
+  } catch (e) {
+    console.error(e)
+    error.value = "IMPOSSIBLE DE JOINDRE LE SERVEUR"
+  } finally {
     loading.value = false
-    // Pour l'exemple, on accepte tout, ou tu peux mettre une condition
-    // router.go('/') // Redirige vers l'accueil
-    alert(`BIENVENUE OFFICIER ${matricule.value}. ACCÈS AUTORISÉ.`)
-  }, 1500)
+  }
 }
 </script>
 
